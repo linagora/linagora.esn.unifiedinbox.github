@@ -1,0 +1,34 @@
+.github-event {
+  .flex-row;
+
+  padding: 10px 15px;
+
+  .github-avatar {
+    position: relative;
+    margin-right: 15px;
+
+    width: 40px;
+
+    img {
+      .avatar(40px);
+    }
+
+    i {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-size: 15px;
+    }
+  }
+
+  .github-date {
+    .flex-end;
+  }
+
+  .github-text {
+    .flex-grow;
+
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+}
