@@ -36,8 +36,7 @@
           },
           headers: {
             Authorization: 'token ' + this.account.token,
-            Accept: 'application/vnd.github.v3+json',
-            'User-Agent': '@linagora'
+            Accept: 'application/vnd.github.v3+json'
           }
       });
     };

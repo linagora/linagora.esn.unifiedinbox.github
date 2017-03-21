@@ -4,19 +4,11 @@
   angular.module('linagora.esn.unifiedinbox.github')
     .run(runBlock);
 
-  function runBlock(session, inboxGithubEventProvider, inboxConfig, inboxProviders) {
-      // inboxConfig('github').then(function(config) {
-      //   if (config) {
-      //     session.getGithubAccounts().forEach(function(account) {
-      //       inboxProviders.add(inboxGithubProvider('github', account.id));
-      //     });
-      //   }
-      // });
-      session.ready.then(function(session) {
-        session.getProviderAccounts('github').forEach(function(account) {
-          inboxProviders.add(inboxGithubEventProvider(account));
-        });
+  function runBlock(session, inboxGithubEventProvider, inboxProviders, INBOX_GITHUB_TYPE) {
+    session.ready.then(function(session) {
+      session.getProviderAccounts(INBOX_GITHUB_TYPE).forEach(function(account) {
+        inboxProviders.add(inboxGithubEventProvider(account));
       });
+    });
   }
-
 })();

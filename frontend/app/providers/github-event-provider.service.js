@@ -4,11 +4,11 @@
   angular.module('linagora.esn.unifiedinbox.github')
     .factory('inboxGithubEventProvider', inboxGithubEventProvider);
 
-  function inboxGithubEventProvider($q, newProvider, inboxGithubApiEventsService, ELEMENTS_PER_REQUEST, INBOX_GITHUB_NAME, PROVIDER_TYPES) {
+  function inboxGithubEventProvider($q, newProvider, inboxGithubApiEventsService, ELEMENTS_PER_REQUEST, INBOX_GITHUB_NAME, INBOX_GITHUB_TYPE, PROVIDER_TYPES) {
 
     return function(account) {
       return newProvider({
-        id: 'github-' + account.id,
+        id: INBOX_GITHUB_TYPE + '-' + account.id,
         types: [PROVIDER_TYPES.SOCIAL],
         name: INBOX_GITHUB_NAME,
         fetch: function() {

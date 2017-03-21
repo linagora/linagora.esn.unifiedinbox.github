@@ -5,7 +5,7 @@
         inbox-github-event(event="item")
   .github-events-empty(ng-if="!ctrl.elements.length && ctrl.infiniteScrollCompleted")
     i.mdi.mdi-github-circle
-    .message #{__("No github events")}
+    .message #{__("No events")}
   ul.nav.nav-pills.nav-stacked(ng-if='ctrl.infiniteScrollDisabled')
     li.text-center(openpaas-logo-spinner, spinner-start-active='1', spinner-size='0.5')
   fab-scroll-top

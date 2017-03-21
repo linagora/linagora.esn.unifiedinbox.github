@@ -6,7 +6,7 @@ var expect = chai.expect;
 
 describe('The inboxGithubSidebarMenuController controller', function() {
 
-  var session, scope, $rootScope, $controller;
+  var session, scope, $rootScope, $controller, INBOX_GITHUB_NAME;
 
   beforeEach(function() {
     session = {
@@ -20,10 +20,11 @@ describe('The inboxGithubSidebarMenuController controller', function() {
     });
   });
 
-  beforeEach(angular.mock.inject(function(_$rootScope_, _$controller_) {
+  beforeEach(angular.mock.inject(function(_$rootScope_, _$controller_, _INBOX_GITHUB_NAME_) {
     $rootScope = _$rootScope_;
     scope = $rootScope.$new();
     $controller = _$controller_;
+    INBOX_GITHUB_NAME = _INBOX_GITHUB_NAME_;
   }));
 
   function getNewController(locals) {
@@ -46,7 +47,7 @@ describe('The inboxGithubSidebarMenuController controller', function() {
       controller.$onInit();
 
       expect(controller.accounts).to.deep.equal(accounts);
-      expect(session.getProviderAccounts).to.have.been.calledWith('github');
+      expect(session.getProviderAccounts).to.have.been.calledWith(INBOX_GITHUB_NAME);
     });
   });
 });
