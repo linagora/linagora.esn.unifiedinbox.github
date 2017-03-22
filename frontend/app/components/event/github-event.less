@@ -1,8 +1,6 @@
 .github-event {
   .flex-row;
 
-  padding: 10px 15px;
-
   .github-avatar {
     position: relative;
     margin-right: 15px;
@@ -19,6 +17,21 @@
       right: 0;
       font-size: 15px;
     }
+
+    @media (min-width: @screen-xl-min) {
+      width: 28px;
+
+      img {
+        .avatar(28px);
+      }
+
+      i {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-size: 12px;
+      }
+    }
   }
 
   .github-date {
@@ -30,5 +43,9 @@
 
     white-space: pre-wrap;
     word-break: break-all;
+
+    @media (min-width: @screen-xl-min) {
+      .flex-vertical-centered;
+    }
   }
 }

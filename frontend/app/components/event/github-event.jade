@@ -1,4 +1,4 @@
-.github-event(ng-if='::ctrl.supported')
+.github-event.inbox-list-item-content(ng-if='::ctrl.supported')
   .github-avatar
     img(ng-src='{{ ::ctrl.event.actor.avatar_url }}', alt='#{__("Github Avatar")}')
     i.mdi.mdi-github-box
