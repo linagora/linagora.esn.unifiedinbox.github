@@ -8,6 +8,7 @@
       'CreateEvent',
       'ForkEvent',
       'IssueCommentEvent',
+      'PublicEvent',
       'PullRequestReviewCommentEvent',
       'PushEvent',
       'WatchEvent'

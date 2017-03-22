@@ -6,5 +6,7 @@
   "commented on issue": "commented on issue",
   "pushed to": "pushed to",
   "forked": "forked",
-  "commented on pull request": "commented on pull request"
+  "commented on pull request": "commented on pull request",
+  "made": "made",
+  "public": "public"
 }

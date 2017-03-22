@@ -6,5 +6,7 @@
   "commented on issue": "a commenté le ticket",
   "pushed to": "a poussé vers",
   "forked": "a forké",
-  "commented on pull request": "a commenté la pull request"
+  "commented on pull request": "a commenté la pull request",
+  "made": "a rendu",
+  "public": "public"
 }
