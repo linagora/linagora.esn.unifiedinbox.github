@@ -5,17 +5,17 @@
 
   .github-text(ng-switch="ctrl.event.type")
     .watch(ng-switch-when="WatchEvent")
-      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] starred #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}]
+      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("starred")} #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}]
     .create(ng-switch-when="CreateEvent")
-      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] created repository #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}]
+      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("created repository")} #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}]
     .issuecomment(ng-switch-when="IssueCommentEvent")
-      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] commented on issue {{::ctrl.event.repo.name}}/{{::ctrl.event.payload.issue.number}}
+      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("commented on issue")} {{::ctrl.event.repo.name}}/{{::ctrl.event.payload.issue.number}}
     .push(ng-switch-when="PushEvent")
-      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] pushed to {{::ctrl.event.payload.ref}} at #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}]
+      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("pushed to")} {{::ctrl.event.payload.ref}} at #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}]
     .fork(ng-switch-when="ForkEvent")
-      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] forked #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}] to #[a(ng-href='http://github.com/{{::ctrl.event.payload.forkee.full_name}}') {{::ctrl.event.payload.forkee.full_name}}]
+      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("forked")} #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}] to #[a(ng-href='http://github.com/{{::ctrl.event.payload.forkee.full_name}}') {{::ctrl.event.payload.forkee.full_name}}]
     .pullrequestreviewcomment(ng-switch-when="PullRequestReviewCommentEvent")
-      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] commented on pull request #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}] XXX
+      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("commented on pull request")} #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}] XXX
 
   .github-date
     span {{ ::ctrl.event.date | date: group.dateFormat }}

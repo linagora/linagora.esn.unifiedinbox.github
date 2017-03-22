@@ -1,4 +1,10 @@
 {
   "Github Avatar": "Github Avatar",
-  "No events": "No events"
+  "No events": "No events",
+  "starred": "starred",
+  "created repository": "created repository",
+  "commented on issue": "commented on issue",
+  "pushed to": "pushed to",
+  "forked": "forked",
+  "commented on pull request": "commented on pull request"
 }
