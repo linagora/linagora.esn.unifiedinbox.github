@@ -4,10 +4,10 @@
   angular.module('linagora.esn.unifiedinbox.github')
     .controller('inboxGithubEventsController', inboxGithubEventsController);
 
-  function inboxGithubEventsController($stateParams, _, session, infiniteScrollHelper, inboxProviders, PageAggregatorService, sortByDateInDescendingOrder, ELEMENTS_PER_PAGE, INBOX_GITHUB_SUPPORTED_EVENTS) {
+  function inboxGithubEventsController($stateParams, _, session, infiniteScrollHelper, inboxProviders, PageAggregatorService, sortByDateInDescendingOrder, ELEMENTS_PER_PAGE, INBOX_GITHUB_SUPPORTED_EVENTS, INBOX_GITHUB_TYPE) {
     var self = this;
 
-    self.account = _.find(session.getProviderAccounts('github'), { username: $stateParams.username });
+    self.account = _.find(session.getProviderAccounts(INBOX_GITHUB_TYPE), { username: $stateParams.username });
     self.isSupported = isSupported;
 
     self.loadMoreElements = infiniteScrollHelper(self, function() {
@@ -16,7 +16,7 @@
       }
 
       return inboxProviders.getAll({
-        acceptedIds: ['github-' + self.account.id]
+        acceptedIds: [INBOX_GITHUB_TYPE + '-' + self.account.id]
       }).then(function(providers) {
         self.aggregator = new PageAggregatorService('unifiedInboxGithubControllerAggregator', providers, {
           compare: sortByDateInDescendingOrder,
