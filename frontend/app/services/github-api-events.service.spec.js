@@ -67,7 +67,7 @@ describe('The inboxGithubApiEventsService service', function() {
       githubEvents.fetchEvents(size).then(function(result) {
         expect(result.length).to.equal(size);
         expect(inboxGithubApiService.parseLink.callCount).to.equal(5);
-        expect(githubEvents.page).to.equal(5);
+        expect(githubEvents.page).to.equal(6);
         expect(githubEvents.end).to.be.false;
         expect(githubEvents.events).to.deep.equal([]);
         done();
@@ -95,7 +95,7 @@ describe('The inboxGithubApiEventsService service', function() {
       githubEvents.fetchEvents(size).then(function(result) {
         expect(result.length).to.equal(events.length * (pages + 1));
         expect(inboxGithubApiService.parseLink.callCount).to.equal(pages + 1);
-        expect(githubEvents.page).to.equal(pages);
+        expect(githubEvents.page).to.equal(pages + 1);
         expect(githubEvents.end).to.be.true;
         expect(githubEvents.events).to.deep.equal([]);
         done();
@@ -124,7 +124,7 @@ describe('The inboxGithubApiEventsService service', function() {
       githubEvents.fetchEvents(size).then(function(result) {
         expect(result).to.deep.equal([0, 1, 2, 3, 4]);
         expect(inboxGithubApiService.parseLink.callCount).to.equal(1);
-        expect(githubEvents.page).to.equal(1);
+        expect(githubEvents.page).to.equal(2);
         expect(githubEvents.end).to.be.false;
         expect(githubEvents.events).to.deep.equal([5, 6, 7, 8, 9]);
         done();
@@ -153,7 +153,7 @@ describe('The inboxGithubApiEventsService service', function() {
       githubEvents.fetchEvents(size).then(function(result) {
         expect(result).to.deep.equal([0, 1, 2, 3, 4]);
         expect(inboxGithubApiService.parseLink.callCount).to.equal(1);
-        expect(githubEvents.page).to.equal(1);
+        expect(githubEvents.page).to.equal(2);
         expect(githubEvents.end).to.be.false;
         expect(githubEvents.events).to.deep.equal([5, 6, 7, 8, 9]);
         done();

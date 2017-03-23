@@ -9,7 +9,7 @@
     function GithubEvents(account) {
       this.account = account;
       this.githubApiClient = new inboxGithubApiService(this.account);
-      this.page = 0;
+      this.page = 1;
       this.end = false;
       this.events = [];
     }
