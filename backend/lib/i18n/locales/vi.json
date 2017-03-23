@@ -1,12 +1,12 @@
 {
-  "Github Avatar": "Github Avatar",
-  "No events": "No events",
-  "starred": "starred",
-  "created repository": "created repository",
-  "commented on issue": "commented on issue",
-  "pushed to": "pushed to",
-  "forked": "forked",
-  "commented on pull request": "commented on pull request",
-  "made": "made",
-  "public": "public"
+  "Github Avatar": "Hình đại diện Github",
+  "No events": "Không có sự kiện",
+  "starred": "đã thêm vào yêu thích",
+  "created repository": "đã tạo kho",
+  "commented on issue": "đã bình luận về vấn đề",
+  "pushed to": "đã đẩy lên",
+  "forked": "đã rẽ nhánh",
+  "commented on pull request": "đã nhận xét về yêu cầu gộp",
+  "made": "đã thực hiện",
+  "public": "công khai"
 }
