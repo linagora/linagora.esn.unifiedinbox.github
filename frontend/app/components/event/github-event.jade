@@ -1,0 +1,23 @@
+.github-event.inbox-list-item-content(ng-if='::ctrl.supported')
+  .github-avatar
+    img(ng-src='{{ ::ctrl.event.actor.avatar_url }}', alt='#{__("Github Avatar")}')
+    i.mdi.mdi-github-box
+
+  .github-text(ng-switch="ctrl.event.type")
+    .watch(ng-switch-when="WatchEvent")
+      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("starred")} #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}]
+    .create(ng-switch-when="CreateEvent")
+      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("created repository")} #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}]
+    .issuecomment(ng-switch-when="IssueCommentEvent")
+      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("commented on issue")} {{::ctrl.event.repo.name}}/{{::ctrl.event.payload.issue.number}}
+    .push(ng-switch-when="PushEvent")
+      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("pushed to")} {{::ctrl.event.payload.ref}} at #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}]
+    .fork(ng-switch-when="ForkEvent")
+      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("forked")} #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}] to #[a(ng-href='http://github.com/{{::ctrl.event.payload.forkee.full_name}}') {{::ctrl.event.payload.forkee.full_name}}]
+    .pullrequestreviewcomment(ng-switch-when="PullRequestReviewCommentEvent")
+      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("commented on pull request")} #[a(ng-href='{{::ctrl.event.comment.html_url}}') {{::ctrl.event.pull_request.number}}]
+    .public(ng-switch-when="PublicEvent")
+      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("made")} #[a(ng-href='{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}] #{__("public")}
+
+  .github-date
+    span {{ ::ctrl.event.date | date: ctrl.event.group.dateFormat }}

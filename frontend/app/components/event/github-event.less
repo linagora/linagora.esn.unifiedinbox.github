@@ -1,0 +1,51 @@
+.github-event {
+  .flex-row;
+
+  .github-avatar {
+    position: relative;
+    margin-right: 15px;
+
+    width: 40px;
+
+    img {
+      .avatar(40px);
+    }
+
+    i {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-size: 15px;
+    }
+
+    @media (min-width: @screen-xl-min) {
+      width: 28px;
+
+      img {
+        .avatar(28px);
+      }
+
+      i {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .github-date {
+    .flex-end;
+  }
+
+  .github-text {
+    .flex-grow;
+
+    white-space: pre-wrap;
+    word-break: break-all;
+
+    @media (min-width: @screen-xl-min) {
+      .flex-vertical-centered;
+    }
+  }
+}
