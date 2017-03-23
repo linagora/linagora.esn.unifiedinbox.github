@@ -4,6 +4,7 @@
   angular.module('linagora.esn.unifiedinbox.github')
     .constant('INBOX_GITHUB_NAME', 'Github')
     .constant('INBOX_GITHUB_TYPE', 'github')
+    .constant('INBOX_GITHUB_CONFIG_RECEIVED_EVENTS', 'github.received_events')
     .constant('INBOX_GITHUB_SUPPORTED_EVENTS', [
       'CreateEvent',
       'ForkEvent',

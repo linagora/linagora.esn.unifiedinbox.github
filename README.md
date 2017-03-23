@@ -53,6 +53,13 @@ cd $ESN
 ln -s path_to_github_module modules/linagora.esn.unifiedinbox.github
 ```
 
+## Enable
+
+In order to use this module, it must be activated and user must link his github account:
+
+1. Activate the gitub events in the linagora.esn.unifiedinbox configuration by setting the feature flip flag `github.received_events` to `true`
+2. The user must link his Github account from the accounts page on http://HOST:PORT/#/controlcenter/accounts
+
 ## Run
 
 Once installed, you can start OpenPaaS ESN as usual. The Github module is now injecting your Github data in the Inbox module if you have linked your Github account with OP.
