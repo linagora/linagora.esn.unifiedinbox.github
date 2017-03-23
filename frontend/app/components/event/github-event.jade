@@ -20,4 +20,4 @@
       span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("made")} #[a(ng-href='{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}] #{__("public")}
 
   .github-date
-    span {{ ::ctrl.event.date | date: group.dateFormat }}
+    span {{ ::ctrl.event.date | date: ctrl.event.group.dateFormat }}
