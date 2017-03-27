@@ -4,7 +4,7 @@
   .github-avatar {
     position: relative;
     margin-right: 15px;
-
+    height: 40px;
     width: 40px;
 
     img {
@@ -19,6 +19,7 @@
     }
 
     @media (min-width: @screen-xl-min) {
+      height: 28px;
       width: 28px;
 
       img {
@@ -46,6 +47,12 @@
 
     @media (min-width: @screen-xl-min) {
       .flex-vertical-centered;
+    }
+
+    .details {
+      color: @secondaryTextColor;
+      font-size: 12px;
+      margin-top: 5px;
     }
   }
 }

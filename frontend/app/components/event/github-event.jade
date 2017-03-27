@@ -9,13 +9,17 @@
     .create(ng-switch-when="CreateEvent")
       span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("created repository")} #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}]
     .issuecomment(ng-switch-when="IssueCommentEvent")
-      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("commented on issue")} {{::ctrl.event.repo.name}}/{{::ctrl.event.payload.issue.number}}
+      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("commented on issue")} #[a(ng-href='{{::ctrl.event.payload.comment.html_url}}') {{::ctrl.event.repo.name}}\#{{::ctrl.event.payload.issue.number}}]
+      .details
+        span {{ ::ctrl.event.payload.comment.body }}
     .push(ng-switch-when="PushEvent")
       span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("pushed to")} {{::ctrl.event.payload.ref}} at #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}]
     .fork(ng-switch-when="ForkEvent")
       span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("forked")} #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}] to #[a(ng-href='http://github.com/{{::ctrl.event.payload.forkee.full_name}}') {{::ctrl.event.payload.forkee.full_name}}]
     .pullrequestreviewcomment(ng-switch-when="PullRequestReviewCommentEvent")
-      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("commented on pull request")} #[a(ng-href='{{::ctrl.event.comment.html_url}}') {{::ctrl.event.pull_request.number}}]
+      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("commented on pull request")} #[a(ng-href='{{::ctrl.event.payload.comment.html_url}}') {{::ctrl.event.repo.name}}\#{{::ctrl.event.payload.pull_request.number}}]
+      .details
+        span {{ ::ctrl.event.payload.comment.body }}
     .public(ng-switch-when="PublicEvent")
       span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("made")} #[a(ng-href='{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}] #{__("public")}
 
