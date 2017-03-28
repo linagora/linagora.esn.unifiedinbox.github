@@ -1,4 +1,4 @@
-.clickable.inbox-item-with-icon(ui-sref="unifiedinbox.github.events({ username: ctrl.account.username })", ui-sref-opts="{ reload: 'unifiedinbox.github.events' }", ui-sref-active="selected", title="{{ ::ctrl.account.username }}")
+.lv-item.clickable.inbox-item-with-icon.folder-with-icon(ui-sref="unifiedinbox.inbox({ type: 'github', account: ctrl.account.username, context: '' })", ui-sref-active="selected", title="{{ ::ctrl.account.username }}")
   .badge-container
     i.inbox-icon.mdi.mdi-github-circle
     span.menu-item-inner

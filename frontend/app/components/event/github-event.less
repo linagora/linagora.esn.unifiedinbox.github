@@ -1,58 +1,9 @@
-.github-event {
-  .flex-row;
-
-  .github-avatar {
-    position: relative;
-    margin-right: 15px;
-    height: 40px;
-    width: 40px;
-
-    img {
-      .avatar(40px);
-    }
-
-    i {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      font-size: 15px;
-    }
-
-    @media (min-width: @screen-xl-min) {
-      height: 28px;
-      width: 28px;
-
-      img {
-        .avatar(28px);
-      }
-
-      i {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        font-size: 12px;
-      }
-    }
+.inbox-root .inbox-items-group .inbox-list-item .inbox-github-event .inbox-list-item-content {
+  .list-image .inbox-image-with-overlay .inbox-overlay {
+    border-radius: 10px;
   }
 
-  .github-date {
-    .flex-end;
-  }
-
-  .github-text {
-    .flex-grow;
-
-    white-space: pre-wrap;
-    word-break: break-all;
-
-    @media (min-width: @screen-xl-min) {
-      .flex-vertical-centered;
-    }
-
-    .details {
-      color: @secondaryTextColor;
-      font-size: 12px;
-      margin-top: 5px;
-    }
+  .preview span a {
+    margin: 0 3px;
   }
 }

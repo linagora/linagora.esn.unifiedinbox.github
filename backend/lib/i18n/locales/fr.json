@@ -1,12 +1,10 @@
 {
   "Github Avatar": "Avatar Github",
-  "No events": "Pas d'évènements",
   "starred": "a mis en favori",
   "created repository": "a créé le dépôt",
-  "commented on issue": "a commenté le ticket",
   "pushed to": "a poussé vers",
   "forked": "a forké",
-  "commented on pull request": "a commenté la pull request",
   "made": "a rendu",
-  "public": "public"
+  "public": "public",
+  "You have no Github events for this account": "Vous n'avez pas d'évenements Github pour ce compte"
 }

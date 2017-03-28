@@ -8,8 +8,9 @@
 
     return function(account) {
       return newProvider({
-        id: INBOX_GITHUB_TYPE + '-' + account.id,
-        types: [PROVIDER_TYPES.SOCIAL],
+        id: INBOX_GITHUB_TYPE,
+        account: account.username,
+        types: [INBOX_GITHUB_TYPE, PROVIDER_TYPES.SOCIAL],
         name: INBOX_GITHUB_NAME,
         fetch: function() {
           var githubEvents = new inboxGithubApiEventsService(account);

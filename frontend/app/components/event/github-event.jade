@@ -1,27 +1,23 @@
-.github-event.inbox-list-item-content(ng-if='::ctrl.supported')
-  .github-avatar
-    img(ng-src='{{ ::ctrl.event.actor.avatar_url }}', alt='#{__("Github Avatar")}')
-    i.mdi.mdi-github-box
-
-  .github-text(ng-switch="ctrl.event.type")
-    .watch(ng-switch-when="WatchEvent")
-      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("starred")} #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}]
-    .create(ng-switch-when="CreateEvent")
-      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("created repository")} #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}]
-    .issuecomment(ng-switch-when="IssueCommentEvent")
-      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("commented on issue")} #[a(ng-href='{{::ctrl.event.payload.comment.html_url}}') {{::ctrl.event.repo.name}}\#{{::ctrl.event.payload.issue.number}}]
-      .details
-        span {{ ::ctrl.event.payload.comment.body }}
-    .push(ng-switch-when="PushEvent")
-      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("pushed to")} {{::ctrl.event.payload.ref}} at #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}]
-    .fork(ng-switch-when="ForkEvent")
-      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("forked")} #[a(ng-href='http://github.com/{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}] to #[a(ng-href='http://github.com/{{::ctrl.event.payload.forkee.full_name}}') {{::ctrl.event.payload.forkee.full_name}}]
-    .pullrequestreviewcomment(ng-switch-when="PullRequestReviewCommentEvent")
-      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("commented on pull request")} #[a(ng-href='{{::ctrl.event.payload.comment.html_url}}') {{::ctrl.event.repo.name}}\#{{::ctrl.event.payload.pull_request.number}}]
-      .details
-        span {{ ::ctrl.event.payload.comment.body }}
-    .public(ng-switch-when="PublicEvent")
-      span #[a(ng-href='https://github.com/{{ ::ctrl.event.actor.display_login }}') {{ ::ctrl.event.actor.display_login }}] #{__("made")} #[a(ng-href='{{::ctrl.event.repo.name}}') {{::ctrl.event.repo.name}}] #{__("public")}
-
-  .github-date
-    span {{ ::ctrl.event.date | date: ctrl.event.group.dateFormat }}
+.inbox-github-event(ng-if="ctrl.supported")
+  .inbox-list-item-content
+    .inbox-item-with-icon
+      .list-image.badge-container
+        .inbox-image-with-overlay
+          img(ng-src='{{ ctrl.event.actor.avatar_url }}', alt='#{__("Github Avatar")}')
+          img.inbox-overlay(src="/unifiedinbox.github/images/GitHub-Mark-120px-plus.png")
+      .media-body
+        .inbox-list-item-subject-and-from
+          .inbox-subject.lv-title
+            span.inbox-subject-inline(ng-switch="ctrl.event.type")
+              a(ng-switch-when="IssueCommentEvent", ng-href='{{ ctrl.event.payload.comment.html_url  }}') {{ ctrl.event.repo.name }}\#{{ ctrl.event.payload.issue.number }}
+              a(ng-switch-when="PullRequestReviewCommentEvent", ng-href='{{ ctrl.event.payload.comment.html_url  }}') {{ ctrl.event.repo.name }}\#{{ ctrl.event.payload.pull_request.number }}
+              a(ng-switch-default, ng-href='http://github.com/{{ ctrl.event.repo.name }}') {{ ctrl.event.repo.name }}
+            span.inbox-preview-inline.inbox-preview-divider -
+            .inbox-preview-inline.lv-small.preview(ng-switch="ctrl.event.type")
+              include github-event-description
+          .inbox-from.lv-title
+            a(ng-href='https://github.com/{{ ctrl.event.actor.display_login }}') {{ ctrl.event.actor.display_login }}
+        .inbox-list-item-date-and-indicators
+          .date-container {{ ctrl.event.date | date: ctrl.event.group.dateFormat }}
+    .inbox-preview-block.preview(ng-switch="ctrl.event.type")
+      include github-event-description

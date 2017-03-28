@@ -1,0 +1,9 @@
+span(ng-switch-when="WatchEvent") #{__("starred")}
+span(ng-switch-when="CreateEvent") #{__("created repository")}
+span(ng-switch-when="IssueCommentEvent") {{ ctrl.event.payload.comment.body }}
+span(ng-switch-when="PushEvent") #{__("pushed to")} {{ ctrl.event.payload.ref }}
+span(ng-switch-when="ForkEvent")
+  | #{__("forked")} to
+  a(ng-href='http://github.com/{{ ctrl.event.payload.forkee.full_name }}') {{ ctrl.event.payload.forkee.full_name }}
+span(ng-switch-when="PullRequestReviewCommentEvent") {{ ctrl.event.payload.comment.body }}
+span(ng-switch-when="PublicEvent") #{__("made")} #{__("public")}
