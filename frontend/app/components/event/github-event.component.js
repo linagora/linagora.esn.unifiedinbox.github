@@ -9,7 +9,6 @@
       bindings: {
         event: '='
       },
-      controller: 'inboxGithubEventController',
       controllerAs: 'ctrl',
       templateUrl: '/unifiedinbox.github/app/components/event/github-event.html'
     };

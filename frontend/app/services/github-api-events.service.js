@@ -4,7 +4,7 @@
   angular.module('linagora.esn.unifiedinbox.github')
     .factory('inboxGithubApiEventsService', inboxGithubApiEventsService);
 
-  function inboxGithubApiEventsService($q, inboxGithubApiService) {
+  function inboxGithubApiEventsService($q, inboxGithubApiService, _, INBOX_GITHUB_SUPPORTED_EVENTS) {
 
     function GithubEvents(account) {
       this.account = account;
@@ -19,6 +19,12 @@
 
       return get();
 
+      function filterUnsupportedEvents(events) {
+        return _.filter(events, function(event) {
+          return _.contains(INBOX_GITHUB_SUPPORTED_EVENTS, event.type);
+        });
+      }
+
       function get() {
         if (self.end) {
           return $q.when([]);
@@ -32,7 +38,7 @@
             self.page++;
           }
 
-          Array.prototype.push.apply(self.events, result.data);
+          Array.prototype.push.apply(self.events, filterUnsupportedEvents(result.data));
 
           if (self.end || result.data.length === 0 || self.events.length >= size) {
             var out = _chunk(self.events);
