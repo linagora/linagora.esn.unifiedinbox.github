@@ -29,6 +29,7 @@ const githubModule = new AwesomeModule(MODULE_NAME, {
       const webserverWrapper = dependencies('webserver-wrapper');
       const app = require('./backend/webserver/application')(dependencies);
       const lessFile = path.resolve(__dirname, './frontend/app/inbox.github.less');
+      const configRegistry = dependencies('esn-config').registry;
 
       let frontendModules = glob.sync([
         FRONTEND_JS_PATH + '**/!(*spec).js'
@@ -40,6 +41,7 @@ const githubModule = new AwesomeModule(MODULE_NAME, {
       webserverWrapper.injectAngularAppModules(NAME, frontendModules, MODULE_NAME, ['esn']);
       webserverWrapper.injectLess(NAME, [lessFile], 'esn');
       webserverWrapper.addApp(NAME, app);
+      configRegistry.registerToModule('linagora.esn.unifiedinbox', 'github.received_events', {});
 
       callback();
     }
