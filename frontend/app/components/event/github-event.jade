@@ -18,6 +18,6 @@
           .inbox-from.lv-title
             a(ng-href='https://github.com/{{ ctrl.event.actor.display_login }}') {{ ctrl.event.actor.display_login }}
         .inbox-list-item-date-and-indicators
-          .date-container {{ ctrl.event.date | date: ctrl.event.group.dateFormat }}
+          .date-container {{ ctrl.event.date | inboxItemDate }}
     .inbox-preview-block.preview(ng-switch="ctrl.event.type")
       include github-event-description
