@@ -26,7 +26,9 @@
               });
           };
         },
-        buildFetchContext: function() { return $q.when(); },
+        buildFetchContext: function(options) {
+          return options && options.quickFilter ? $q.reject('Github does not support server-side filtering') : $q.when();
+        },
         templateUrl: '/unifiedinbox.github/app/providers/github-event-provider'
       });
     };
