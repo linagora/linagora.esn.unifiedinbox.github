@@ -1,6 +1,6 @@
 {
   "name": "linagora.esn.unifiedinbox.github",
-  "version": "0.0.1",
+  "version": "0.5.1-dev",
   "description": "OpenPaaS Github Module for Unified Inbox",
   "main": "index.js",
   "devDependencies": {
