@@ -15,9 +15,13 @@
             span.inbox-preview-inline.inbox-preview-divider -
             .inbox-preview-inline.lv-small.preview(ng-switch="ctrl.event.type")
               include github-event-description.pug
+          .flags-container
           .inbox-from.lv-title
             a(ng-href='https://github.com/{{ ctrl.event.actor.display_login }}') {{ ctrl.event.actor.display_login }}
         .inbox-list-item-date-and-indicators
-          .date-container {{ ctrl.event.date | inboxItemDate }}
+          .date-and-indicators-container
+            .indicators
+            .date-container
+              span {{ ctrl.event.date | inboxItemDate }}
     .inbox-preview-block.preview(ng-switch="ctrl.event.type")
       include github-event-description.pug
