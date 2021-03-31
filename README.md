@@ -1,3 +1,5 @@
+![Archived](https://img.shields.io/badge/Current_Status-archived-blue?style=flat)
+
 # linagora.esn.unifiedinbox.github
 
 Github extension for OpenPaaS ESN inbox module.
